@@ -86,12 +86,34 @@ end
 "Hi #{arg.name}! It's #{@name}. How are you?"
   end
 
-  def start_conversation
-
+  def start_conversation(arg, topic)
+    #binding.pry
+    chat_group = [self, arg]
+    if topic == "politics"
+      chat_group.each do |person|
+        person.happiness -=2
+        if person.happiness < 0
+          person.happiness = 0
+        end
+      end
+      "blah blah partisan blah lobbyist"
+    elsif topic == "weather"
+      chat_group.each do |person|
+        person.happiness +=1
+        if person.happiness > 10
+          person.happiness = 10
+        end
+      end
+      "blah blah sun blah rain"
+    else
+      "blah blah blah blah blah"
+    end
   end
 ##########################################################
 end
 
-# amir = Person.new("amir")
+#  amir = Person.new("amir")
+#  carlo = Person.new("carlo")
+#  carlo.call_friend(amir)
 # binding.pry
 # 0
