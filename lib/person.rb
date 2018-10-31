@@ -1,38 +1,40 @@
 # your code goes here
+require 'pry'
 class Person
 #########################
 # reader and getter methods
   attr_reader :name
   attr_accessor :bank_account
-  def initialize(name, bank_account = 25, happiness_points = 8, hygiene_points = 8)
+  def initialize(name)
     @name = name
-    @happiness_points = happiness_points
-    @hygiene_points = hygiene_points
+    @happiness = 8
+    @hygiene = 8
+    @bank_account = 25
   end
 
-  def happiness_points=(arg)
-    if arg >= 0 && arg <= 10
-    @happiness_points = arg
+  def happiness=(arg)
+    @happiness = arg
+    @happiness = 10 if @happiness > 10
+    @happiness = 0 if @happiness < 0
   end
+
+
+  def happiness
+    @happiness
+  end
+  def hygiene=(arg)
+    @hygiene = arg
+    @hygiene = 10 if @hygiene >10
+    @hygiene = 0 if @hygiene < 0
 end
 
-
-  def happiness_points
-    @happiness_points
-  end
-  def hygiene_points=(arg)
-    if arg >= 0 && arg <= 10
-    @hygiene_points = arg
-  end
-end
-
-  def hygiene_points
-    @hygiene_points
+  def hygiene
+    @hygiene
   end
 #####################################################
 # class Person functions
   def clean?
-    if @hygiene_points > 7
+    if @hygiene > 7
       true
     else
       false
@@ -40,7 +42,7 @@ end
 end
 
   def happy?
-    if @happiness_points > 7
+    if @happiness > 7
       true
     else
       false
@@ -68,3 +70,7 @@ end
   end
 ##########################################################
 end
+
+# amir = Person.new("amir")
+# binding.pry
+# 0
