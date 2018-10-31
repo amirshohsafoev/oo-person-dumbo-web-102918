@@ -9,26 +9,42 @@ class Person
     @happiness_points = happiness_points
     @hygiene_points = hygiene_points
   end
+
   def happiness_points=(arg)
+    if arg >= 0 && arg <= 10
     @happiness_points = arg
   end
+end
+
+
   def happiness_points
     @happiness_points
   end
   def hygiene_points=(arg)
+    if arg >= 0 && arg <= 10
     @hygiene_points = arg
   end
+end
+
   def hygiene_points
     @hygiene_points
   end
 #####################################################
 # class Person functions
   def clean?
-
-  end
+    if @hygiene_points > 7
+      true
+    else
+      false
+    end
+end
 
   def happy?
-
+    if @happiness_points > 7
+      true
+    else
+      false
+    end
   end
 
   def get_paid
