@@ -63,11 +63,27 @@ end
   end
 
   def work_out
-
+    self.happiness +=2
+    if happiness >= 10
+      @happiness = 10
+    end
+    self.hygiene-=3
+    if hygiene < 0
+      @hygiene = 0
+    end
+    "♪ another one bites the dust ♫"
   end
 
-  def call_friend
-
+  def call_friend(arg)
+self.happiness += 3
+if happiness >= 10
+  @happiness = 10
+end
+arg.happiness += 3
+if arg.happiness >= 10
+  arg.happiness = 10
+end
+"Hi #{arg.name}! It's #{@name}. How are you?"
   end
 
   def start_conversation
