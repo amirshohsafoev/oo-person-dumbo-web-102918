@@ -49,12 +49,17 @@ end
     end
   end
 
-  def get_paid
-
+  def get_paid(salary)
+    @bank_account += salary
+    "all about the benjamins"
   end
 
   def take_bath
-
+    self.hygiene+=4
+    if hygiene >= 10
+      @hygiene = 10
+    end
+    "♪ Rub-a-dub just relaxing in the tub ♫"
   end
 
   def work_out
